@@ -24,7 +24,7 @@ export default function About() {
         <button onClick={handleClick}>ボタン</button><br />
         <button onClick={handleDisplay}>
           {isShow ? "非表示" : "表示"}
-        </button><hr size="10" />
+        </button><hr size="1" color='#fff' />
         <input type="text" value={text} onChange={handleChange} /><br />
         <button onClick={handleAdd}>要素を追加</button>
         <ul>
