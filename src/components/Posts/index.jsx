@@ -1,44 +1,70 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useReducer } from "react";
 
-// function home
+const initialState = {
+  data: [],
+  loading: true,
+  err: null,
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "end": {
+      return {
+        ...state,
+        data: action.data,
+        loading: false,
+      };
+    }
+    case "error": {
+      return {
+        ...state,
+        error: action.error,
+        loading: false,
+      };
+    }
+    default: {
+      throw new Error("no such action type!");
+    }
+  }
+};
+
 export const Posts = () => {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const getPosts = useCallback(async () => {
     try {
       const res = await fetch("https://jsonplaceholder.typicode.com/posts");
       if (!res.ok) {
-        throw new Error("エラーが発生しました。");
+        throw new Error("エラーが発生したため、データの取得に失敗しました。");
       }
       const json = await res.json();
-      setPosts(json);
-    } catch (err) {
-      setError(err);
+      dispatch({ type: "end", data: json });
+    } catch (error) {
+      dispatch({ type: "error", error });
     }
-    setLoading(false);
   }, []);
 
   useEffect(() => {
     getPosts();
   }, [getPosts]);
 
-  if (loading) {
+  console.log("foo");
+
+  if (state.loading) {
     return <div>ローディング中</div>;
   }
 
-  if (error) {
-    return <div>{error.message}</div>;
+  if (state.error) {
+    return <div>{state.error.message}</div>;
   }
 
-  if (posts.length === 0) {
+  if (state.data.length === 0) {
     return <div>データはからです</div>;
   }
 
   return (
     <ol>
-      {posts.map((post) => {
+      {state.data.map((post) => {
         return <li key={post.id}>{post.title}</li>;
       })}
     </ol>
