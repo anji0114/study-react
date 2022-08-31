@@ -14,3 +14,17 @@ a {
 * {
   box-sizing: border-box;
 }
+
+ul,
+ol {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+li {
+  padding: 30px 10px;
+  border-bottom: 1px solid #333;
+  list-style: inside;
+  list-style-type: decimal;
+  text-align: left;
+}
