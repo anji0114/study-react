@@ -3,7 +3,7 @@ import { Header } from "src/components/Header";
 import { Post } from "src/components/Post";
 
 // function home
-const PostId = () => {
+const PostsId = () => {
   return (
     <div className={styles.container}>
       
@@ -13,4 +13,4 @@ const PostId = () => {
   );
 };
 
-export default PostId;
+export default PostsId;
