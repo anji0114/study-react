@@ -28,3 +28,10 @@ li {
   list-style-type: decimal;
   text-align: left;
 }
+
+.small-list {
+  margin-top: 40px;
+}
+.small-list li {
+  padding: 15px 5px;
+}
