@@ -25,8 +25,6 @@ export const UserComponent = () => {
 
       <h2>投稿</h2>
       <PostsByUserId id={data.id} />
-
-      <h2>コメント</h2>
     </div>
   );
 };
