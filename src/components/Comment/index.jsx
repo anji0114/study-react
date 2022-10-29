@@ -11,11 +11,17 @@ export const CommentComponent = () => {
     return <div>{error.message}</div>;
   }
 
+  console.log(data);
+
   return (
     <div>
-      <h1>{data.name}</h1>
       <p>{data.body}</p>
-      <p>{data.email}</p>
+      <ul>
+        <li>{data.name}</li>
+        <li>{data.email}</li>
+      </ul>
+
+      <h2>元の記事</h2>
     </div>
   );
 };
