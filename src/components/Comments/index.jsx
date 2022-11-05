@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useComments } from "src/hooks/useFetchArray";
 
-
 export const CommentsComponent = () => {
   const { data, error, isLoading, isEmpty } = useComments();
 
@@ -22,8 +21,11 @@ export const CommentsComponent = () => {
       {data.map((comments) => {
         return (
           <li key={comments.id} className="border-b pb-4">
-            <Link href={`comments/${comments.id}`}>
-              <a className="block hover:text-blue-400">{comments.body}</a>
+            <Link
+              href={`comments/${comments.id}`}
+              className="block hover:text-blue-400"
+            >
+              {comments.body}
             </Link>
           </li>
         );

@@ -21,11 +21,12 @@ export const UsersComponent = () => {
       {data.map((user) => {
         return (
           <li key={user.id}>
-            <Link href={`users/${user.id}`}>
-              <a className="block bg-gray-50 p-4 shadow rounded hover:bg-gray-100">
-                <h2 className="text-lg font-bold truncate">{user.name}</h2>
-                <p className="truncate">{user.email}</p>
-              </a>
+            <Link
+              href={`users/${user.id}`}
+              className="block bg-gray-50 p-4 shadow rounded hover:bg-gray-100"
+            >
+              <h2 className="text-lg font-bold truncate">{user.name}</h2>
+              <p className="truncate">{user.email}</p>
             </Link>
           </li>
         );

@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-
 const NAV_ITEMS = [
   { href: "/", label: "Index" },
   { href: "/posts", label: "Posts" },
@@ -13,12 +12,15 @@ export const Header = () => {
     <header className="flex justify-center items-center border-b w-full h-24 mb-4">
       {NAV_ITEMS.map((item) => {
         return (
-          <Link key={item.href} href={item.href}>
-            <a className="inline-block py-2 px-6 text-xl hover:text-blue-500 focus:text-blue-500  active:text-blue-500">{item.label}</a>
+          <Link
+            key={item.href}
+            href={item.href}
+            className="inline-block py-2 px-6 text-xl hover:text-blue-500 focus:text-blue-500  active:text-blue-500"
+          >
+            {item.label}
           </Link>
         );
       })}
     </header>
   );
 };
-
