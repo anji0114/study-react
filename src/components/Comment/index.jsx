@@ -12,18 +12,17 @@ export const CommentComponent = () => {
     return <div>{error.message}</div>;
   }
 
-  console.log(data);
-
   return (
     <div>
-      <p>{data.body}</p>
-      <ul>
-        <li>{data.name}</li>
-        <li>{data.email}</li>
-      </ul>
+      <div className="text-lg">
+        Created by {data.name}（{data.email}）
+      </div>
+      <p className="text-xl font-bold mt-4">{data.body}</p>
 
-      <h2>元の記事</h2>
-      <PostByCommentId id={data.postId} />
+      <h2 className="font-bold text-xl mt-10">元の記事</h2>
+      <div className="mt-2">
+        <PostByCommentId id={data.postId} />
+      </div>
     </div>
   );
 };

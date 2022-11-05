@@ -15,9 +15,5 @@ export const UserByUserId = (props) => {
     return <div>{error.message}</div>;
   }
 
-  return (
-    <div>
-      Created by <strong>{data.name}</strong>
-    </div>
-  );
+  return <div className="text-lg">Created by {data.name}</div>;
 };

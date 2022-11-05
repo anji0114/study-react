@@ -22,10 +22,13 @@ export const Post = () => {
         <title>{data?.title}</title>
       </Head>
 
-      <h1>{data?.title}</h1>
-      <p>{data?.body}</p>
       <UserByUserId id={data.userId} />
-      <CommentsByPostID id={data.id} />
+      <h1 className="text-3xl font-bold mt-2">{data?.title}</h1>
+      <p className="text-xl text-gray-900 mt-2">{data?.body}</p>
+      <h2 className="font-bold text-xl mt-10">コメント一覧</h2>
+      <div className="mt-2">
+        <CommentsByPostID id={data.id} />
+      </div>
     </div>
   );
 };
