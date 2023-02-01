@@ -11,7 +11,6 @@ const Posts = () => {
       </Head>
 
       <Header />
-
       <PostsComponent />
     </div>
   );
