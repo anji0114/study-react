@@ -24,6 +24,7 @@ export const CommentsComponent = () => {
             <Link
               href={`comments/${comments.id}`}
               className="block hover:text-blue-400"
+              prefetch={false}
             >
               {comments.body}
             </Link>
