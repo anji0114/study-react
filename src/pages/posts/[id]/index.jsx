@@ -1,13 +1,12 @@
-import { Header } from "src/components/Header";
-import { Post } from "src/components/Post";
+
+import { PostDetail } from "src/components/Post/PostDetail";
 
 // function home
 const PostsId = () => {
   return (
     <div>
-      
-      <Header />
-      <Post />
+
+      <PostDetail />
     </div>
   );
 };

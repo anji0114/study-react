@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { SWRConfig } from "swr";
 
-import { CommentsComponent } from "src/components/Comments";
-import { Header } from "src/components/Header";
+import { CommentList } from "src/components/Comment/CommentList";
+
 import { API_URL } from "src/utils/const";
 
 export const getStaticProps = async () => {
@@ -30,8 +30,7 @@ const Comments = (props) => {
         <meta name="description" content="User一覧を表示するぺージ" />
       </Head>
       <SWRConfig value={{ fallback }}>
-        <Header />
-        <CommentsComponent />
+        <CommentList />
       </SWRConfig>
     </div>
   );

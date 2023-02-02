@@ -1,8 +1,8 @@
-import React from "react";
-import { Header } from "src/components/Header";
-import { UserComponent } from "src/components/User";
-import { API_URL } from "src/utils/const";
 import { SWRConfig } from "swr";
+// utils
+import { API_URL } from "src/utils/const";
+// components
+import { UserDetail } from "src/components/User/UserDetail";
 
 export const getServerSideProps = async (ctx) => {
   const { id } = ctx.query;
@@ -13,7 +13,7 @@ export const getServerSideProps = async (ctx) => {
   const userData = await user.json();
 
   // ユーザーの投稿の取得
-  const POSTS_API_URL = `${API_URL}/posts?userId=${userData.id}`;
+  const POSTS_API_URL = `${API_URL}/users/${userData.id}/posts`;
   const posts = await fetch(POSTS_API_URL);
   const postsData = await posts.json();
 
@@ -32,8 +32,7 @@ const UserId = (props) => {
 
   return (
     <SWRConfig value={{ fallback }}>
-      <Header />
-      <UserComponent />
+      <UserDetail />
     </SWRConfig>
   );
 };

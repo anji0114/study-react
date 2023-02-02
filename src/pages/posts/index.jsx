@@ -1,6 +1,6 @@
 import Head from "next/head";
-import { Header } from "src/components/Header";
-import { Posts as PostsComponent } from "src/components/Posts";
+
+import { PostList } from "src/components/Post/PostList";
 
 // function home
 const Posts = () => {
@@ -10,8 +10,8 @@ const Posts = () => {
         <title>Posts Page</title>
       </Head>
 
-      <Header />
-      <PostsComponent />
+
+      <PostList />
     </div>
   );
 };

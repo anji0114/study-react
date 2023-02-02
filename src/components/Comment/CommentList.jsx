@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { useComments } from "src/hooks/useFetchArray";
+import { useFetchArray } from "src/hooks/useFetchArray";
+import { API_URL } from "src/utils/const";
 
-export const CommentsComponent = () => {
-  const { data, error, isLoading, isEmpty } = useComments();
+export const CommentList = () => {
+  const { data, error, isLoading, isEmpty } = useFetchArray(`${API_URL}/comments`);
 
   if (isLoading) {
     return <div>ローディング中</div>;
